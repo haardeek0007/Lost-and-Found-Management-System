@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost and Found Management System</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Lost and Found Management System</h1>
+        
+        <!-- Add Item Form -->
+        <div class="form-container">
+            <h2>Add New Item</h2>
+            <form id="addItemForm">
+                <label for="itemName">Item Name:</label>
+                <input type="text" id="itemName" required>
+                
+                <label for="itemDescription">Description:</label>
+                <input type="text" id="itemDescription" required>
+                
+                <label for="itemLocation">Location:</label>
+                <input type="text" id="itemLocation" required>
+                
+                <button type="submit">Add Item</button>
+            </form>
+        </div>
+
+        <!-- Search Item -->
+        <div class="form-container">
+            <h2>Search Item</h2>
+            <input type="text" id="searchItem" placeholder="Enter item name">
+            <button onclick="searchItem()">Search</button>
+            <div id="searchResults"></div>
+        </div>
+
+        <!-- Display All Items -->
+        <div class="form-container">
+            <h2>All Items</h2>
+            <button onclick="displayItems()">Display All Items</button>
+            <div id="itemsList"></div>
+        </div>
+
+        <!-- Delete Item -->
+        <div class="form-container">
+            <h2>Delete Item by ID</h2>
+            <input type="number" id="deleteItemId" placeholder="Enter item ID">
+            <button onclick="deleteItem()">Delete Item</button>
+        </div>
+
+        <!-- Update Item -->
+        <div class="form-container">
+            <h2>Update Item by ID</h2>
+            <input type="number" id="updateItemId" placeholder="Enter item ID" required>
+            <input type="text" id="updateItemName" placeholder="New name" required>
+            <input type="text" id="updateItemDescription" placeholder="New description" required>
+            <input type="text" id="updateItemLocation" placeholder="New location" required>
+            <button onclick="updateItem()">Update Item</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
