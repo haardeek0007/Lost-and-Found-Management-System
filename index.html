@@ -1,65 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lost and Found Management System</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lost and Found Management System</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="container">
-        <h1>Lost and Found Management System</h1>
-        
-        <!-- Add Item Form -->
-        <div class="form-container">
-            <h2>Add New Item</h2>
-            <form id="addItemForm">
-                <label for="itemName">Item Name:</label>
-                <input type="text" id="itemName" required>
-                
-                <label for="itemDescription">Description:</label>
-                <input type="text" id="itemDescription" required>
-                
-                <label for="itemLocation">Location:</label>
-                <input type="text" id="itemLocation" required>
-                
-                <button type="submit">Add Item</button>
-            </form>
-        </div>
+  <div class="container">
+    <h1>Lost and Found Management System</h1>
 
-        <!-- Search Item -->
-        <div class="form-container">
-            <h2>Search Item</h2>
-            <input type="text" id="searchItem" placeholder="Enter item name">
-            <button onclick="searchItem()">Search</button>
-            <div id="searchResults"></div>
-        </div>
+    <!-- Authentication Section -->
+    <div id="authSection" class="card">
+      <div id="loginForm">
+        <h2>Login</h2>
+        <input type="text" id="loginUsername" placeholder="Username" autocomplete="username" />
+        <input type="password" id="loginPassword" placeholder="Password" autocomplete="current-password" />
+        <button class="btn primary" onclick="login()">Login</button>
+        <p>Don't have an account? <a href="#" onclick="showRegister()">Register here</a></p>
+        <p id="loginMessage" class="message"></p>
+      </div>
 
-        <!-- Display All Items -->
-        <div class="form-container">
-            <h2>All Items</h2>
-            <button onclick="displayItems()">Display All Items</button>
-            <div id="itemsList"></div>
-        </div>
-
-        <!-- Delete Item -->
-        <div class="form-container">
-            <h2>Delete Item by ID</h2>
-            <input type="number" id="deleteItemId" placeholder="Enter item ID">
-            <button onclick="deleteItem()">Delete Item</button>
-        </div>
-
-        <!-- Update Item -->
-        <div class="form-container">
-            <h2>Update Item by ID</h2>
-            <input type="number" id="updateItemId" placeholder="Enter item ID" required>
-            <input type="text" id="updateItemName" placeholder="New name" required>
-            <input type="text" id="updateItemDescription" placeholder="New description" required>
-            <input type="text" id="updateItemLocation" placeholder="New location" required>
-            <button onclick="updateItem()">Update Item</button>
-        </div>
+      <div id="registerForm" style="display:none;">
+        <h2>Register</h2>
+        <input type="text" id="registerUsername" placeholder="Choose a username" autocomplete="username" />
+        <input type="password" id="registerPassword" placeholder="Choose a password" autocomplete="new-password" />
+        <button class="btn primary" onclick="register()">Register</button>
+        <p>Already have an account? <a href="#" onclick="showLogin()">Login here</a></p>
+        <p id="registerMessage" class="message"></p>
+      </div>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Main App Section -->
+    <div id="appSection" style="display:none;">
+      <div class="header-row">
+  <h2 id="welcomeMessage">Welcome, <span id="currentUserName"></span>!</h2>
+  <button id="logoutButton" class="btn danger" onclick="logout()">Logout</button>
+</div>
+
+
+      <div class="card">
+        <h3>Add New Item</h3>
+        <input type="text" id="itemName" placeholder="Item Name" />
+        <input type="text" id="itemDescription" placeholder="Item Description" />
+        <input type="text" id="itemLocation" placeholder="Item Location" />
+        <button class="btn primary" onclick="addItem()">Add Item</button>
+      </div>
+
+      <div class="card search-card">
+        <h3>Search Items</h3>
+        <input type="text" id="searchInput" placeholder="Search by name or description" />
+        <button class="btn secondary" onclick="searchItem()">Search</button>
+        <div id="searchResult" class="search-result"></div>
+      </div>
+
+      <div class="card">
+        <h3>All Items</h3>
+        <div id="itemList" class="item-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Modal -->
+  <div id="editModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeEditModal()">&times;</span>
+      <h3>Edit Item</h3>
+      <input type="text" id="editName" placeholder="Item Name" />
+      <input type="text" id="editDescription" placeholder="Item Description" />
+      <input type="text" id="editLocation" placeholder="Item Location" />
+      <button class="btn primary" onclick="saveEdit()">Save</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
