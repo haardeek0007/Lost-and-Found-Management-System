@@ -1,74 +1,185 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+  font-family: 'Roboto', sans-serif;
+  background: #f5f7fa;
+  margin: 0;
+  padding: 20px;
+  color: #333;
 }
 
 .container {
-    max-width: 900px;
-    margin: 50px auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 h1 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #2c3e50;
 }
 
-h2 {
-    margin-top: 20px;
-    color: #444;
+.card {
+  background: white;
+  padding: 20px;
+  margin-bottom: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.form-container {
-    margin-bottom: 20px;
-    padding: 15px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    border: 1px solid #ddd;
+input[type="text"], input[type="password"] {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 8px 0 15px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
 }
 
-label {
-    display: block;
-    margin-top: 10px;
-    font-weight: bold;
+input[type="text"]:focus, input[type="password"]:focus {
+  outline: none;
+  border-color: #3498db;
 }
 
-input {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
+button.btn {
+  cursor: pointer;
+  border: none;
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
 }
 
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+button.btn.primary {
+  background-color: #3498db;
+  color: white;
 }
 
-button:hover {
-    background-color: #45a049;
+button.btn.primary:hover {
+  background-color: #2980b9;
 }
 
-#itemsList, #searchResults {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+button.btn.secondary {
+  background-color: #2980b9;
+  color: white;
+}
+
+button.btn.secondary:hover {
+  background-color: #7f8c8d;
+}
+
+button.btn.danger {
+  background-color: #e74c3c;
+  color: white;
+}
+
+button.btn.danger:hover {
+  background-color: #c0392b;
+}
+
+.message {
+  color: #e74c3c;
+  font-weight: bold;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+.header-row {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 15px;
+}
+
+#welcomeMessage {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.item-list, .search-result {
+  margin-top: 15px;
+}
+
+.item {
+  background: #ecf0f1;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  position: relative;
+}
+
+.item strong {
+  color: #2c3e50;
+}
+
+.item button {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  padding: 6px 12px;
+  font-size: 13px;
+  border-radius: 4px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.item button.edit-btn {
+  right: 70px;
+  background-color: #2980b9;
+  color: white;
+  border: none;
+}
+
+.item button.edit-btn:hover {
+  background-color: #1c5980;
+}
+
+.item button.delete-btn {
+  right: 10px;
+  background-color: #c0392b;
+  color: white;
+  border: none;
+}
+
+.item button.delete-btn:hover {
+  background-color: #922b21;
+}
+
+/* Modal Styles */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1000; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.5); 
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto; 
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+}
+
+.close {
+  color: #aaa;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
 }
